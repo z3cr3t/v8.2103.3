@@ -1439,7 +1439,7 @@ term = terminal.TerminalController()
 
 
 update = False
-versionSource = 'v8.2103.2'
+versionSource = 'v8.2103.3'
     
 updateSource = urllib.urlopen("http://opbeast.net/bsdtver.txt")
 updateContents = updateSource.read() 
@@ -1450,16 +1450,26 @@ if updateContents != versionSource:
 
 
 def updateMainFile():
+    filename = os.path.basename(__file__)
     os.system('echo Your Current Version is '+versionSource+' which is out of date.')
-    os.system('mkdir ../'+updateContents)
-    os.system('cd ../'+updateContents+' && git clone https://github.com/AnonBinarySecurity/'+updateContents+'/')
+    os.system('git clone https://github.com/AnonBinarySecurity/'+updateContents+'/')
     os.system('echo Your tool has been updated, please run these two commands to get to the proper directory. ')
     os.system('echo ')
-    os.system('echo vvvvvvvvvvvv')
-    os.system('echo cd ../'+updateContents)
+    os.system('echo This Version Will Now Be Deleted.')
+    time.sleep(2)
+    os.system('rm -f '+filename)
     os.system('echo ')
-    os.system('cd '+updateContents)
-    os.system('echo ^^^^^^^^^^^^')
+    os.system('echo Rewriting Tool with the Updates.')
+    os.system('cp '+updateContents+'/BinarySecv8Term.py BinarySecv8Term.py')
+    time.sleep(1)
+    os.system('echo Deleting the downloaded GitHub....')
+    os.system('rm -rf '+updateContents)
+    time.sleep(1)
+    os.system('echo ')
+    os.system('echo Your Tool Has Been Updated Successfully!')
+    os.system('echo ')
+    os.system('echo Exiting now, Re-run python command to use new tool.')
+    time.sleep(3)
 
 class httpPost(threading.Thread):
     def __init__(self, host, port, tor):
@@ -1667,6 +1677,5 @@ if __name__ == "__main__":
            print " *"+term.RED + " BinarySec Tool v8 BCDL 5.0 (Ultimate) +SSL+"+term.NORMAL
            print " * This Flood was developed after 50+ hours of work."
            print " * Made By The Riddler"
-
            main(sys.argv[1:])
 
