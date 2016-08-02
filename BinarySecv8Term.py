@@ -1439,7 +1439,7 @@ term = terminal.TerminalController()
 
 
 update = False
-versionSource = 'v8.2103.3'
+versionSource = 'v8.2103.2'
     
 updateSource = urllib.urlopen("http://opbeast.net/bsdtver.txt")
 updateContents = updateSource.read() 
@@ -1451,13 +1451,14 @@ if updateContents != versionSource:
 
 def updateMainFile():
     os.system('echo Your Current Version is '+versionSource+' which is out of date.')
-    os.system('mkdir '+updateContents)
-    os.system('cd '+updateContents)
-    os.system('git clone https://github.com/AnonBinarySecurity/'+updateContents+'/ '+updateContents)
-    os.system('echo Your tool has been updated, please run this command to get to the proper directory. ')
+    os.system('mkdir ../'+updateContents)
+    os.system('cd ../'+updateContents+' && git clone https://github.com/AnonBinarySecurity/'+updateContents+'/')
+    os.system('echo Your tool has been updated, please run these two commands to get to the proper directory. ')
     os.system('echo ')
     os.system('echo vvvvvvvvvvvv')
-    os.system('echo cd '+updateContents)
+    os.system('echo cd ../'+updateContents)
+    os.system('echo ')
+    os.system('cd '+updateContents)
     os.system('echo ^^^^^^^^^^^^')
 
 class httpPost(threading.Thread):
