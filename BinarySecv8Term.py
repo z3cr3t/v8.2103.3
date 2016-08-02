@@ -1439,7 +1439,7 @@ term = terminal.TerminalController()
 
 
 update = False
-versionSource = 'v8.2103.2'
+versionSource = 'v8.2103.3'
     
 updateSource = urllib.urlopen("http://opbeast.net/bsdtver.txt")
 updateContents = updateSource.read() 
@@ -1596,14 +1596,13 @@ class httpPost(threading.Thread):
                     time.sleep(0.1)
                     pass
 def usage():
-        print "./BinarySecv7Term.py -t <target> [-r <threads> -p <port> -T -h]"
+        print "./BinarySecv8Term.py -t <target> [-r <threads> -p <port> -T -h]"
         print " -t|--target <Hostname|IP>"
         print " -r|--threads <Number of threads> Defaults to 256"
         print " -p|--port <Web Server Port> Defaults to 80"
         print " -T|--tor Enable anonymising through tor on 127.0.0.1:9050"
         print " -h|--help Shows this help\n"
-        print " -s|--ssl Enable SSL Connectivity.\n" 
-        print "Eg. ./BinarySecv7Term.py -t 192.168.1.100 -r 256\n"
+        print "Eg. ./BinarySecv8Term.py -t 192.168.1.100 -r 256\n"
 
 def main(argv):
 
@@ -1664,7 +1663,7 @@ if __name__ == "__main__":
         else:
 
            print "\n/*"
-           print " *"+term.RED + " BinarySec Tool v7 BCDL 4.0 (Ultimate) +NO SSL+"+term.NORMAL
+           print " *"+term.RED + " BinarySec Tool v8 BCDL 5.0 (Ultimate) +SSL+"+term.NORMAL
            print " * This Flood was developed after 50+ hours of work."
            print " * Made By The Riddler"
 
