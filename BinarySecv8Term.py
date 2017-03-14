@@ -1439,7 +1439,7 @@ term = terminal.TerminalController()
 
 
 update = False
-versionSource = 'v8.2103.3'
+versionSource = 'v9.99'
     
 updateSource = urllib.urlopen("http://opbeast.net/bsdtver.txt")
 updateContents = updateSource.read() 
